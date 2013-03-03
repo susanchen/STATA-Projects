@@ -1,0 +1,66 @@
+Nutrient Supplementation on the Health Status of Pre-Pubertal Children: A Meta-Analysis
+=================================================================================================
+
+ABSTRACT
+
+Background:
+Multiple studies have been carried out to assess the effect of nutrient supplements on
+children’s health either through direct vitamin and mineral supplementation, food
+fortification or both. The results of these studies are inconsistent, and the factors behind
+these varied outcomes are unknown.
+
+Objective:
+Meta-analyses of randomized controlled trials, randomized placebo control trials and
+retrospective difference-in-difference evaluations were therefore completed to assess the
+effect of nutrient supplementation on the health of children ages 0-5 years in developing
+countries.
+
+Design:
+A total of 18 acceptable studies published in the last 20 years were identified by searches
+in journals of renowned reputation, such as The Lancet (American and British editions),
+The Journal of Nutrition, The American Journal of Nutrition and The Journal of
+Pediatrics. These studies identified clear outcomes that would measure changes in the
+nutritional status of the population (mainly variations in stunting, wasting, infant
+mortality, anemia). The factors associated with effect sizes were explored by metaregression
+techniques.
+
+Results:
+The overall effect of nutrition supplements on health outcomes was positive although the
+studies indicate that nearly half of all interventions (7 out of 18 studies) had a neutral
+effect. In this meta-analysis, the impacts might be influenced by design features such as
+the type of intervention and sample size. The impacts might also vary by geographical
+location and by infants who are breast-fed versus those who are not. However, a metaregression
+of these factors on study outcomes reveals that these factors are insignificant
+(p>0.1).
+
+Conclusions:
+Interventions to improve children’s health should be considered in populations at risk of
+undernourishment, especially where there are elevated rates of disease or mortality.
+However, policymakers should think twice about distributing certain supplements, like
+iron tablets, to children who have malaria or other diseases as preexisting underlying
+conditions. In these cases, interventions to address malnutrition should be complemented
+with interventions toward disease control and management.
+
+=================================================================================================
+
+STATA CODE
+
+NB: chg_stat_bin indicates the change in health status
+
+1) Type of Intervention
+. probit chg_stat_bin type_int
+
+2) Breast-Fed Infants
+. probit chg_stat_bin ante_bfeed
+
+3) Sample Size
+. probit chg_stat_bin samp_size
+
+4) Location
+. probit chg_stat_bin afc_loc
+
+5) All Factors
+. probit chg_stat_bin type_int ante_bfeed samp_size afc_loc
+
+6) Summary
+. sum type_int ante_bfeed samp_size afc_loc
