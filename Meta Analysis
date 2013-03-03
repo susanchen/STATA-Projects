@@ -45,7 +45,6 @@ with interventions toward disease control and management.
 
 STATA CODE
 
-
 . probit  chg_stat_bin undrl_cond type_int ante_bfeed vit_a_int samp_size afc_loc num_cov
 
 Iteration 0:   log likelihood = -13.460233  
