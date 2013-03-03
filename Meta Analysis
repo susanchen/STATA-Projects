@@ -45,22 +45,229 @@ with interventions toward disease control and management.
 
 STATA CODE
 
-NB: chg_stat_bin indicates the change in health status
 
-1) Type of Intervention
-. probit chg_stat_bin type_int
+. probit  chg_stat_bin undrl_cond type_int ante_bfeed vit_a_int samp_s
+> ize afc_loc num_cov
 
-2) Breast-Fed Infants
-. probit chg_stat_bin ante_bfeed
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood =  -9.982514  
+Iteration 2:   log likelihood = -9.7370275  
+Iteration 3:   log likelihood = -9.7318495  
+Iteration 4:   log likelihood = -9.7318457  
+Iteration 5:   log likelihood = -9.7318457  
 
-3) Sample Size
-. probit chg_stat_bin samp_size
+Probit regression                                 Number of obs   =   
+>       20
+                                                  LR chi2(7)      =   
+>     7.46
+                                                  Prob > chi2     =   
+>   0.3829
+Log likelihood = -9.7318457                       Pseudo R2       =   
+>   0.2770
 
-4) Location
-. probit chg_stat_bin afc_loc
+----------------------------------------------------------------------
+> --------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. I
+> nterval]
+-------------+--------------------------------------------------------
+> --------
+  undrl_cond |   .1663867   1.337364     0.12   0.901    -2.454798    
+> 2.787571
+    type_int |  -.7434057   1.053212    -0.71   0.480    -2.807663    
+> 1.320851
+  ante_bfeed |   1.593766   1.021614     1.56   0.119    -.4085603    
+> 3.596091
+   vit_a_int |   -1.16045   1.034494    -1.12   0.262    -3.188022    
+> .8671217
+   samp_size |  -.2051846    1.06916    -0.19   0.848    -2.300699    
+>  1.89033
+     afc_loc |  -.8897456   1.245409    -0.71   0.475    -3.330703    
+> 1.551212
+     num_cov |   .9568099   .9922862     0.96   0.335    -.9880354    
+> 2.901655
+       _cons |   .8274845   1.689028     0.49   0.624    -2.482949    
+> 4.137918
+----------------------------------------------------------------------
+> --------
 
-5) All Factors
-. probit chg_stat_bin type_int ante_bfeed samp_size afc_loc
+. probit  chg_stat_bin undrl_cond type_int ante_bfeed vit_a_int samp_size afc_loc nu
+> m_cov
 
-6) Summary
-. sum type_int ante_bfeed samp_size afc_loc
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood =  -9.982514  
+Iteration 2:   log likelihood = -9.7370275  
+Iteration 3:   log likelihood = -9.7318495  
+Iteration 4:   log likelihood = -9.7318457  
+Iteration 5:   log likelihood = -9.7318457  
+
+Probit regression                                 Number of obs   =         20
+                                                  LR chi2(7)      =       7.46
+                                                  Prob > chi2     =     0.3829
+Log likelihood = -9.7318457                       Pseudo R2       =     0.2770
+
+------------------------------------------------------------------------------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  undrl_cond |   .1663867   1.337364     0.12   0.901    -2.454798    2.787571
+    type_int |  -.7434057   1.053212    -0.71   0.480    -2.807663    1.320851
+  ante_bfeed |   1.593766   1.021614     1.56   0.119    -.4085603    3.596091
+   vit_a_int |   -1.16045   1.034494    -1.12   0.262    -3.188022    .8671217
+   samp_size |  -.2051846    1.06916    -0.19   0.848    -2.300699     1.89033
+     afc_loc |  -.8897456   1.245409    -0.71   0.475    -3.330703    1.551212
+     num_cov |   .9568099   .9922862     0.96   0.335    -.9880354    2.901655
+       _cons |   .8274845   1.689028     0.49   0.624    -2.482949    4.137918
+------------------------------------------------------------------------------
+
+. probit   chg_stat_bin undrl_cond
+
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood = -13.307751  
+Iteration 2:   log likelihood = -13.307729  
+Iteration 3:   log likelihood = -13.307729  
+
+Probit regression                                 Number of obs   =         20
+                                                  LR chi2(1)      =       0.31
+                                                  Prob > chi2     =     0.5808
+Log likelihood = -13.307729                       Pseudo R2       =     0.0113
+
+------------------------------------------------------------------------------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  undrl_cond |   -.316542   .5746686    -0.55   0.582    -1.442872    .8097878
+       _cons |   .4307273   .4321643     1.00   0.319    -.4162992    1.277754
+------------------------------------------------------------------------------
+
+. probit   chg_stat_bin  type_int
+
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood = -12.868497  
+Iteration 2:   log likelihood = -12.865862  
+Iteration 3:   log likelihood = -12.865862  
+
+Probit regression                                 Number of obs   =         20
+                                                  LR chi2(1)      =       1.19
+                                                  Prob > chi2     =     0.2756
+Log likelihood = -12.865862                       Pseudo R2       =     0.0442
+
+------------------------------------------------------------------------------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    type_int |  -.7579695   .7164222    -1.06   0.290    -2.162131    .6461922
+       _cons |   .8416212   .6389635     1.32   0.188    -.4107241    2.093967
+------------------------------------------------------------------------------
+
+. probit   chg_stat_bin   ante_bfeed
+
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood = -13.040281  
+Iteration 2:   log likelihood = -13.040115  
+Iteration 3:   log likelihood = -13.040115  
+
+Probit regression                                 Number of obs   =         20
+                                                  LR chi2(1)      =       0.84
+                                                  Prob > chi2     =     0.3593
+Log likelihood = -13.040115                       Pseudo R2       =     0.0312
+
+------------------------------------------------------------------------------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  ante_bfeed |   .5244005   .5751444     0.91   0.362    -.6028617    1.651663
+       _cons |   6.23e-17   .3963327     0.00   1.000    -.7767979    .7767979
+------------------------------------------------------------------------------
+
+. probit   chg_stat_bin   vit_a_int
+
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood = -13.040281  
+Iteration 2:   log likelihood = -13.040115  
+Iteration 3:   log likelihood = -13.040115  
+
+Probit regression                                 Number of obs   =         20
+                                                  LR chi2(1)      =       0.84
+                                                  Prob > chi2     =     0.3593
+Log likelihood = -13.040115                       Pseudo R2       =     0.0312
+
+------------------------------------------------------------------------------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   vit_a_int |  -.5244005   .5751444    -0.91   0.362    -1.651663    .6028617
+       _cons |   .5244005    .416787     1.26   0.208     -.292487    1.341288
+------------------------------------------------------------------------------
+
+. probit   chg_stat_bin    samp_size
+
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood = -13.379812  
+Iteration 2:   log likelihood = -13.379798  
+Iteration 3:   log likelihood = -13.379798  
+
+Probit regression                                 Number of obs   =         20
+                                                  LR chi2(1)      =       0.16
+                                                  Prob > chi2     =     0.6884
+Log likelihood = -13.379798                       Pseudo R2       =     0.0060
+
+------------------------------------------------------------------------------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   samp_size |  -.2507149   .6274383    -0.40   0.689    -1.480471    .9790415
+       _cons |   .4307273    .529291     0.81   0.416     -.606664    1.468119
+------------------------------------------------------------------------------
+
+. probit   chg_stat_bin     afc_loc
+
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood = -12.817521  
+Iteration 2:   log likelihood = -12.816447  
+Iteration 3:   log likelihood = -12.816447  
+
+Probit regression                                 Number of obs   =         20
+                                                  LR chi2(1)      =       1.29
+                                                  Prob > chi2     =     0.2565
+Log likelihood = -12.816447                       Pseudo R2       =     0.0478
+
+------------------------------------------------------------------------------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     afc_loc |  -.6744897   .6024912    -1.12   0.263    -1.855351    .5063713
+       _cons |   .6744897   .4817634     1.40   0.162    -.2697491    1.618729
+------------------------------------------------------------------------------
+
+. probit   chg_stat_bin   num_cov
+
+Iteration 0:   log likelihood = -13.460233  
+Iteration 1:   log likelihood = -12.628755  
+Iteration 2:   log likelihood = -12.628133  
+Iteration 3:   log likelihood = -12.628133  
+
+Probit regression                                 Number of obs   =         20
+                                                  LR chi2(1)      =       1.66
+                                                  Prob > chi2     =     0.1970
+Log likelihood = -12.628133                       Pseudo R2       =     0.0618
+
+------------------------------------------------------------------------------
+chg_stat_bin |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     num_cov |   .7442956   .5822931     1.28   0.201    -.3969778    1.885569
+       _cons |  -.1397103   .4192564    -0.33   0.739    -.9614377    .6820171
+------------------------------------------------------------------------------
+
+. sum undrl_cond
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+  undrl_cond |        20         .55    .5104178          0          1
+
+. sum undrl_cond type_int ante_bfeed vit_a_int samp_size afc_loc num_cov
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+  undrl_cond |        20         .55    .5104178          0          1
+    type_int |        20         .75    .4442617          0          1
+  ante_bfeed |        20          .5    .5129892          0          1
+   vit_a_int |        20          .5    .5129892          0          1
+   samp_size |        20          .7    .4701623          0          1
+-------------+--------------------------------------------------------
+     afc_loc |        20          .6    .5026247          0          1
+     num_cov |        20         .55    .5104178          0          1
+
+. exit, clear
